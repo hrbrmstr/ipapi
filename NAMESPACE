@@ -3,5 +3,4 @@
 export(geolocate)
 import(data.table)
 import(httr)
-import(jsonlite)
 import(pbapply)

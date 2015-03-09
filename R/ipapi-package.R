@@ -2,5 +2,5 @@
 #' @name ipapi
 #' @docType package
 #' @author Bob Rudis (@@hrbrmstr)
-#' @import httr jsonlite pbapply data.table
+#' @import httr pbapply data.table
 NULL

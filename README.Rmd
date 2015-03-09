@@ -46,7 +46,7 @@ geolocate(c(NA, "10.0.1.1", "", "72.33.67.89", "dds.ec", " ", "search.twitter.co
 library(ipapi)
 library(testthat)
 
-date()
+Sys.Date()
 
 test_dir("tests/")
 ```
