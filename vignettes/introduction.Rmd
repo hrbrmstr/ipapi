@@ -1,0 +1,33 @@
+---
+title: "Introduction to the ipapi Package"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: true
+vignette: >
+  %\VignetteIndexEntry{Introduction to the ipapi Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+options(dplyr.print_min = 4L, dplyr.print_max = 4L)
+library(streamgraph)
+```
+
+The `ipapi` pacakge provides an R interface to the `ip-api.com`^[http://ip-api.com/] geolocation API for IPv4/6 addresses and domain names. It exposes one function: `geolocate` that takes a character vector of entities to
+geolocate and returns a `data.table` of results. 
+
+There's not much more to say that a quick example can't show:
+
+```{r geo1, message=FALSE}
+geolocate(c(NA, "10.0.1.1", "", "72.33.67.89", "dds.ec", " ", "search.twitter.com"), 
+          .progress=FALSE)
+```
+
+Note the `.progress=FALSE` parameter. By default, `geolocate` will show a progress bar since it's nice to get some feedback when cycling through a large number of items to process (and, since `ip-api.com` forces a 250 req/min restriction). However, ones doesn't always want/need a progress bar (like when buildig this vignette).
+
+As you can see from the example above, `NA` or blank entries will return the geolocation of the IP address that the request was made from.
+
+If there are any errors in the `http` connection or failures during the geolocaition, the result for the problematic call will be all `NA`s except for the entity being queried for.

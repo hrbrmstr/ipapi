@@ -29,4 +29,19 @@ generated and the lookup response will be populated with \code{NA}s.
 Similarly, if there is a geocoding failure, the response for that query will
 also be populated with \code{NA}s
 }
+\examples{
+\dontrun{
+resp <- geolocate(c(NA, "10.0.1.1", "", "72.33.67.89", "dds.ec", " ",
+                        "search.twitter.com"))
+resp[,c(9,4,7,8),with=F]
+           query countryCode       lon                             org
+## 1: 50.252.233.22          US  -69.9739                   Comcast Cable
+## 2:      10.0.1.1          NA        NA                              NA
+## 3: 50.252.233.22          US  -69.9739                   Comcast Cable
+## 4:   72.33.67.89          US  -89.4012 University of Wisconsin Madison
+## 5: 162.243.111.4          US  -73.9865                   Digital Ocean
+## 6: 50.252.233.22          US  -69.9739                   Comcast Cable
+## 7: 199.59.148.11          US -122.3933                         Twitter
+}
+}
 

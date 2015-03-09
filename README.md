@@ -44,12 +44,12 @@ geolocate(c(NA, "10.0.1.1", "", "72.33.67.89", "dds.ec", " ", "search.twitter.co
     ## 7:                      AS13414 Twitter Inc. San Francisco United States          US                         Twitter
     ##        lat       lon                             org          query region    regionName  status            timezone
     ## 1: 41.8301  -69.9739                   Comcast Cable  50.252.233.22     MA Massachusetts success    America/New_York
-    ## 2:      NA        NA                              NA       10.0.1.1     NA            NA      NA                  NA
+    ## 2:      NA        NA                              NA       10.0.1.1     NA            NA    fail                  NA
     ## 3: 41.8301  -69.9739                   Comcast Cable  50.252.233.22     MA Massachusetts success    America/New_York
     ## 4: 43.0731  -89.4012 University of Wisconsin Madison    72.33.67.89     WI     Wisconsin success     America/Chicago
     ## 5: 40.7490  -73.9865                   Digital Ocean  162.243.111.4     NY      New York success    America/New_York
     ## 6: 41.8301  -69.9739                   Comcast Cable  50.252.233.22     MA Massachusetts success    America/New_York
-    ## 7: 37.7697 -122.3933                         Twitter 199.59.149.200     CA    California success America/Los_Angeles
+    ## 7: 37.7697 -122.3933                         Twitter 199.59.149.243     CA    California success America/Los_Angeles
     ##      zip
     ## 1: 02642
     ## 2:    NA
@@ -76,4 +76,6 @@ test_dir("tests/")
 
     ## basic functionality : .
     ## 
-    ## Way to go!
+    ## :)
+
+[![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

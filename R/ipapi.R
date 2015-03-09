@@ -21,11 +21,24 @@ trim <- function(x) { gsub("(^\ +|\ +$)", "", x) }
 #' @param .progress show a progress bar? (useful if geolocating many entities)
 #' @return \code{data.table} of responses
 #' @export
-geolocate <- function(entities, .progress=TRUE) {
+#' @examples \dontrun{
+#' resp <- geolocate(c(NA, "10.0.1.1", "", "72.33.67.89", "dds.ec", " ",
+#'                         "search.twitter.com"))
+#' resp[,c(9,4,7,8),with=F]
+#'            query countryCode       lon                             org
+#' ## 1: 50.252.233.22          US  -69.9739                   Comcast Cable
+#' ## 2:      10.0.1.1          NA        NA                              NA
+#' ## 3: 50.252.233.22          US  -69.9739                   Comcast Cable
+#' ## 4:   72.33.67.89          US  -89.4012 University of Wisconsin Madison
+#' ## 5: 162.243.111.4          US  -73.9865                   Digital Ocean
+#' ## 6: 50.252.233.22          US  -69.9739                   Comcast Cable
+#' ## 7: 199.59.148.11          US -122.3933                         Twitter
+#' }
+geolocate <- function(entities, .progress = TRUE) {
 
-  pboptions(type=ifelse(.progress, "txt", "none"))
+  pboptions(type = ifelse(.progress, "txt", "none"))
 
-  rbindlist(pblapply(entities, get_loc), fill=TRUE)
+  rbindlist(pblapply(entities, get_loc), fill = TRUE)
 
 }
 
@@ -39,14 +52,14 @@ get_loc <- function(entity=NA) {
   success <- warn_for_status(res)
 
   if (success) {
-    res_p <- content(res, as="parsed")
+    res_p <- content(res, as = "parsed")
     if (res_p$status != "fail") {
       dat <- data.frame(res_p)
     } else {
-      dat <- data.table(query=entity)
+      dat <- data.table(query = entity, status="fail")
     }
   } else {
-    dat <- data.table(query=entity)
+    dat <- data.table(query = entity)
   }
 
   return(dat)
