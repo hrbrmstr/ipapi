@@ -7,6 +7,8 @@ output:
     variant: markdown_github
 ---
 
+[![Build Status](https://travis-ci.org/hrbrmstr/ipapi.png)](https://travis-ci.org/hrbrmstr/ipapi)
+
 ipapi is a package to geolocate IPv4/6 addresses and/or domain names using ip-api.com's API
 
 The following functions are implemented:
