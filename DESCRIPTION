@@ -1,0 +1,20 @@
+Package: ipapi
+Type: Package
+Title: Geolocate IPv4/6 addresses and/or domain names using ip-api.com's API
+Version: 0.1
+Date: 2015-03-09
+Author: Bob Rudis (@hrbrmstr)
+Maintainer: Bob Rudis <bob@rudis.net>
+Description: Provides a single function to lookup character vectors of IP
+    addresses and/or domain names using ip-api.com's API.
+URL: http://github.com/hrbrmstr/ipapi
+BugReports: https://github.com/hrbrmstr/ipapi/issues
+License: MIT + file LICENSE
+Suggests:
+    testthat
+Depends:
+    R (>= 3.0.0),
+    httr (>= 0.3.0),
+    jsonlite,
+    pbapply,
+    data.table

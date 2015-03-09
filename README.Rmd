@@ -1,0 +1,53 @@
+---
+title: "README"
+author: "Bob Rudis"
+date: March 09, 2015
+output:
+  md_document:
+    variant: markdown_github
+---
+
+ipapi is a package to geolocate IPv4/6 addresses and/or domain names using ip-api.com's API
+
+The following functions are implemented:
+
+- `geolocate` - lookup a vector of IPv4/6 addresses and/or domain names and return a `data.table` of results
+
+### News
+
+- Version `0.1` released
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/ipapi")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r}
+library(ipapi)
+
+# current verison
+packageVersion("ipapi")
+
+geolocate(c(NA, "10.0.1.1", "", "72.33.67.89", "dds.ec", " ", "search.twitter.com"),
+                        .progress=FALSE)
+
+```
+
+### Test Results
+
+```{r}
+library(ipapi)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
+
