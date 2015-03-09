@@ -11,7 +11,8 @@ URL: http://github.com/hrbrmstr/ipapi
 BugReports: https://github.com/hrbrmstr/ipapi/issues
 Suggests:
     testthat,
-    jsonlite
+    jsonlite,
+    knitr
 License: MIT + file LICENSE
 Imports: pbapply, httr
 Depends:
