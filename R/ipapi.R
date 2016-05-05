@@ -44,14 +44,14 @@ geolocate <- function(entities, .progress = TRUE) {
 
 get_loc <- function(entity=NA) {
 
-  Sys.sleep(0.15) # help prevent banning
+  Sys.sleep(0.4) # help prevent banning
 
   url <- ifelse(is.na(entity), base_url, paste0(base_url, "/", trim(entity)))
 
   res <- GET(url)
   success <- warn_for_status(res)
 
-  if (success) {
+  if (success$status_code == 200) {
     res_p <- content(res, as = "parsed")
     if (res_p$status != "fail") {
       dat <- data.frame(res_p)
