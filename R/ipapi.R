@@ -44,7 +44,7 @@ geolocate <- function(entities, .progress = TRUE) {
 
 get_loc <- function(entity=NA) {
 
-  Sys.sleep(0.15) # help prevent banning
+  Sys.sleep(0.4) # help prevent banning
 
   url <- ifelse(is.na(entity), base_url, paste0(base_url, "/", trim(entity)))
 
