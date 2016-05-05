@@ -51,7 +51,7 @@ get_loc <- function(entity=NA) {
   res <- GET(url)
   success <- warn_for_status(res)
 
-  if (success) {
+  if (success$status_code == 200) {
     res_p <- content(res, as = "parsed")
     if (res_p$status != "fail") {
       dat <- data.frame(res_p)
