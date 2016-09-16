@@ -50,16 +50,20 @@ get_loc <- function(entity=NA) {
 
   res <- GET(url)
   success <- warn_for_status(res)
-
-  if (success$status_code == 200) {
-    res_p <- content(res, as = "parsed")
-    if (res_p$status != "fail") {
-      dat <- data.frame(res_p)
+  
+  if (class(success) == "response") {
+    if (success$status_code == 200) {
+      res_p <- content(res, as = "parsed")
+      if (res_p$status != "fail") {
+        dat <- data.frame(res_p)
+      } else {
+        dat <- data.table(query = entity, status="fail")
+      }
     } else {
-      dat <- data.table(query = entity, status="fail")
+      dat <- data.table(query = entity)
     }
   } else {
-    dat <- data.table(query = entity)
+    dat <- data.table(query = entity, status=success)
   }
 
   return(dat)
